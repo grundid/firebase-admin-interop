@@ -64,6 +64,13 @@ class FirebaseAdmin {
     return _apps[name];
   }
 
+  App app([String name]) {
+    if (name == null) {
+      name = js.defaultAppName;
+    }
+    return App(_admin.app(name));
+  }
+
   /// Creates [App] certificate.
   js.Credential cert({
     @required String projectId,
